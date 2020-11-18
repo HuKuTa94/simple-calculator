@@ -8,7 +8,6 @@ abstract class Validator
 {
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 10;
-    private static final int ARABIC_NUMBER_CODE_THRESHOLD = 57;
     private static final String ROMAN_NUMBERS = "IVXLCM";
     private static final String REGEX_SPLIT = "\\s";
     private static final int FIRST_NUMBER_INDEX = 0;
@@ -23,11 +22,9 @@ abstract class Validator
         }
 
         // Numbers are not same type
-        if( ((int) strNumbers[ FIRST_NUMBER_INDEX ].charAt( 0 ) <= ARABIC_NUMBER_CODE_THRESHOLD &&
-            (int) strNumbers[ SECOND_NUMBER_INDEX ].charAt( 0 ) > ARABIC_NUMBER_CODE_THRESHOLD ) ||
-            ((int) strNumbers[ SECOND_NUMBER_INDEX ].charAt( 0 ) <= ARABIC_NUMBER_CODE_THRESHOLD &&
-            (int) strNumbers[ FIRST_NUMBER_INDEX ].charAt( 0 ) > ARABIC_NUMBER_CODE_THRESHOLD ))
-        {
+        NumberType type1 = getNumberType( strNumbers[ FIRST_NUMBER_INDEX ] );
+        NumberType type2 = getNumberType( strNumbers[ SECOND_NUMBER_INDEX ] );
+        if (type1 != type2) {
             throw new IllegalArgumentException( "Numbers are not same type: " + strNumbers[ FIRST_NUMBER_INDEX ] + ", " + strNumbers[ SECOND_NUMBER_INDEX ]);
         }
 
