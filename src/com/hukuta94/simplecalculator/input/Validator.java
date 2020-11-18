@@ -9,6 +9,7 @@ abstract class Validator
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 10;
     private static final int ARABIC_NUMBER_CODE_THRESHOLD = 57;
+    private static final String ROMAN_NUMBERS = "IVXLCM";
     private static final String REGEX_SPLIT = "\\s";
     private static final int FIRST_NUMBER_INDEX = 0;
     private static final int SECOND_NUMBER_INDEX = 2;
@@ -78,14 +79,13 @@ abstract class Validator
                 operator.equals( "*" ) || operator.equals( "/" );
     }
 
-    public static NumberType getNumberType( String number ) {
-        if( isRomanNumeral( number ))
+    private static NumberType getNumberType( String number ) {
+        if ( Character.isDigit( number.charAt( 0 )) ) {
+            return NumberType.ARABIC;
+        }
+        else if ( ROMAN_NUMBERS.contains( number.substring( 0, 1 )) ) {
             return NumberType.ROMAN;
-        return NumberType.ARABIC;
-    }
-
-    public static boolean isRomanNumeral( String number ) {
-        int code = number.charAt( 0 );
-        return code > ARABIC_NUMBER_CODE_THRESHOLD;
+        }
+        throw new IllegalArgumentException( number + " is not a number" );
     }
 }
