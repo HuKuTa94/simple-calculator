@@ -15,6 +15,7 @@ abstract class Validator
     private static final int OPERATOR_INDEX = 1;
 
     static Data validateLineAndGetData(String line) {
+        line = line.trim();
         String[] strNumbers = line.toUpperCase().split( REGEX_SPLIT );
 
         if( strNumbers.length != 3 ) {
