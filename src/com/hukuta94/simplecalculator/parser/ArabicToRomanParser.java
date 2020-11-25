@@ -1,22 +1,21 @@
 package com.hukuta94.simplecalculator.parser;
 
-import com.hukuta94.simplecalculator.model.RomanNumeral;
-
 public abstract class ArabicToRomanParser
 {
-    public static String parse( int number ) {
-        // Use roman enum
-        if( number <= 10 ) {
-            return RomanNumeral.toRoman( number );
-        }
+    private static final String[] THOUSANDS = { "", "M", "MM", "MMM" };
+    private static final String[] HUNDREDS = { "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" };
+    private static final String[] TENS = { "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
+    private static final String[] UNITS = { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
 
-        // Parse to roman
-        int units = number % 10;
-        int decades = ( number / 10 ) * 10; // (number/10) - remove all units to get decade count then multiply it to 10
-        StringBuilder builder = new StringBuilder();
-        builder.append( RomanNumeral.toRoman( decades ))
-                .append( units > 0 ? RomanNumeral.toRoman( units ) : "" );
+    public static String parse( int number )
+    {
+        StringBuilder roman = new StringBuilder();
 
-        return builder.toString();
+        roman.append( THOUSANDS[ (number/1000) % 10 ])
+             .append( HUNDREDS[ (number/100) % 10 ])
+             .append( TENS[ (number/10) % 10 ])
+             .append( UNITS[ number% 10 ]);
+
+        return roman.toString();
     }
 }
