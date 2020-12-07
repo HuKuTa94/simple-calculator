@@ -2,7 +2,7 @@ package com.hukuta94.simplecalculator.parser;
 
 public class RomanToArabicParser {
     // римское число, которое надо распарсить
-    public static StringBuilder line;
+    private static StringBuilder line;
 
     // возвращает арабское представление полученного римского числа
     // или -1, если в результате парсинга было получено недопустимое значение
@@ -33,7 +33,7 @@ public class RomanToArabicParser {
     // позволяет распарсить следующий один класс римского числа (тысячи, затем сотни и т.д.)
     // возвращает представление этого класса в виде арабского числа и удаляет
     // этот класс из StringBuilder line
-    public static int auxiliaryParse(int exp, char one, char five, char ten) {
+    private static int auxiliaryParse(int exp, char one, char five, char ten) {
         if (line.length() == 0) return -1;
         String fore = new String("" + one + five);
         String nine = new String("" + one + ten);
