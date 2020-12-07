@@ -20,7 +20,19 @@ public enum RomanNumeral
     LXX( "LXX", 70 ),
     LXXX( "LXXX", 80 ),
     XC( "XC", 90 ),
-    C( "C", 100 );
+    C( "C", 100 ),
+    CC( "CC", 200 ),
+    CCC( "CCC", 300 ),
+    CD( "CD", 400 ),
+    D( "D", 500 ),
+    DC( "DC", 600 ),
+    DCC( "DCC", 700 ),
+    DCCC( "DCCC", 800 ),
+    CM( "CM", 900 ),
+    M( "M", 1000 ),
+    MM( "MM", 2000 ),
+    MMM( "MMM", 3000 );
+
 
     private String roman;
     private int arabic;
