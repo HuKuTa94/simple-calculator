@@ -8,15 +8,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Validator {
-
+    // проверяет корректность введенных данных и возвращает их в виде объекта Data
     static Data validateLineAndGetData(String line) {
         // проверка: ни один из аргументов не должен быть нулем
         if (line.matches("(^0.*)||(.*\\D0.*)")) throw new IllegalArgumentException("Ex 1");
-        line.concat("df");
 
         // получение аргументов и операнда из line
-        line.toUpperCase();
-        Matcher roman = Pattern.compile("\\s*([IVXLCDM]+)\\s*([\\+\\-\\*/])\\s*([IVXLCDM]+)\\s*").matcher(line);
+        Matcher roman = Pattern.compile("\\s*([IVXLCDM]+)\\s*([\\+\\-\\*/])\\s*([IVXLCDM]+)\\s*").matcher(line.toUpperCase());
         Matcher arabic = Pattern.compile("\\s*(\\d+)\\s*([\\+\\-\\*/])\\s*(\\d+)\\s*").matcher(line);
         if (!roman.find() && !arabic.find()) throw new IllegalArgumentException("Ex 1");
         NumberType type = roman.reset().find() ? NumberType.ROMAN : NumberType.ARABIC;
