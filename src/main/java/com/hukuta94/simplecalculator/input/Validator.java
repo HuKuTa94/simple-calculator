@@ -2,11 +2,10 @@ package com.hukuta94.simplecalculator.input;
 
 import com.hukuta94.simplecalculator.model.Data;
 import com.hukuta94.simplecalculator.model.NumberType;
-import com.hukuta94.simplecalculator.model.RomanNumeral;
 import com.hukuta94.simplecalculator.parser.RomanToArabicParser;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 
 public class Validator {
 
