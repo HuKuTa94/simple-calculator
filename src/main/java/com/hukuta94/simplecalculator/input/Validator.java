@@ -4,8 +4,7 @@ import com.hukuta94.simplecalculator.model.Data;
 import com.hukuta94.simplecalculator.model.NumberType;
 import com.hukuta94.simplecalculator.model.RomanNumeral;
 
-abstract class Validator
-{
+public class Validator {
     private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 10;
     private static final String ROMAN_NUMBERS = "IVXLCM";

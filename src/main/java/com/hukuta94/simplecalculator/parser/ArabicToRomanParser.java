@@ -1,21 +1,15 @@
 package com.hukuta94.simplecalculator.parser;
 
-public abstract class ArabicToRomanParser
-{
-    private static final String[] THOUSANDS = { "", "M", "MM", "MMM" };
-    private static final String[] HUNDREDS = { "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" };
-    private static final String[] TENS = { "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
-    private static final String[] UNITS = { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
+import com.hukuta94.simplecalculator.model.RomanNumeral;
 
-    public static String parse( int number )
-    {
-        StringBuilder roman = new StringBuilder();
+public abstract class ArabicToRomanParser {
 
-        roman.append( THOUSANDS[ (number/1000) % 10 ])
-             .append( HUNDREDS[ (number/100) % 10 ])
-             .append( TENS[ (number/10) % 10 ])
-             .append( UNITS[ number% 10 ]);
+    public static String parse( int number ) {
+        String THOUSANDS = RomanNumeral.toRoman((number/1000) * 1000);
+        String HUNDREDS = RomanNumeral.toRoman(((number/100) % 10) * 100);
+        String TENS = RomanNumeral.toRoman(((number/10) % 10) * 10);
+        String UNITS = RomanNumeral.toRoman(number % 10);
 
-        return roman.toString();
+        return THOUSANDS + HUNDREDS + TENS + UNITS;
     }
 }

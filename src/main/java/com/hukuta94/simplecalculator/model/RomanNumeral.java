@@ -31,7 +31,8 @@ public enum RomanNumeral
     CM( "CM", 900 ),
     M( "M", 1000 ),
     MM( "MM", 2000 ),
-    MMM( "MMM", 3000 );
+    MMM( "MMM", 3000 ),
+    o ("", 0);
 
 
     private String roman;
