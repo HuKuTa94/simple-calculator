@@ -18,7 +18,6 @@ public class RomanToArabicParser {
 
         ArrayList<RomanNumeral> list = new ArrayList<>(Arrays.asList(RomanNumeral.values()));
         Collections.reverse(list);
-        System.out.println(list);
 
         for (RomanNumeral item : list) {
             if (checkAndPrun(item.getRoman())) arabicNumber += item.getArabic();
