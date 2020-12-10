@@ -5,13 +5,16 @@ import com.hukuta94.simplecalculator.domain.arabicroman.parser.ArabicToRomanPars
 
 class RomanCalculator extends Calculator
 {
-    RomanCalculator(InputData inputData) {
-        super(inputData);
+    private ArabicToRomanParser arabicToRomanParser;
+
+    RomanCalculator( InputData inputData ) {
+        super( inputData );
+        arabicToRomanParser = new ArabicToRomanParser();
     }
 
     @Override
     public String calculate() {
         int result = getResult( inputData.getFirstOperand(), inputData.getSecondOperand(), inputData.getOperator() );
-        return ArabicToRomanParser.parse( result );
+        return arabicToRomanParser.parse( result );
     }
 }
