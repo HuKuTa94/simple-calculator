@@ -1,6 +1,5 @@
 package com.hukuta94.simplecalculator;
 
-import com.hukuta94.simplecalculator.domain.arabicroman.model.Validator;
 import com.hukuta94.simplecalculator.domain.arabicroman.port.driving.UserInputPort;
 import com.hukuta94.simplecalculator.domain.arabicroman.service.ArabicRomanCalculatorService;
 import com.hukuta94.simplecalculator.presenter.ConsolePrinter;
@@ -14,7 +13,7 @@ public class Main
     {
         ConsolePrinter consolePrinter = new ConsolePrinter();
         consolePrinter.printWelcomeMessage();
-        UserInputPort arabicRomanAdapter = new UserInputHandler( new ArabicRomanCalculatorService( new Validator() ));
+        UserInputPort arabicRomanAdapter = new UserInputHandler( new ArabicRomanCalculatorService() );
         Scanner scanner = new Scanner( System.in );
 
         while( true ) {
