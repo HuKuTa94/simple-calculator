@@ -1,6 +1,6 @@
 package com.hukuta94.simplecalculator;
 
-import com.hukuta94.simplecalculator.parser.ArabicToRomanParser;
+import com.hukuta94.simplecalculator.domain.arabicroman.parser.ArabicToRomanParser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
