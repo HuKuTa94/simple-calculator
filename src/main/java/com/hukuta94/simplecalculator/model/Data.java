@@ -1,11 +1,13 @@
 package com.hukuta94.simplecalculator.model;
 
-public final class Data
-{
-    private int firstNumber;
-    private int secondNumber;
-    private String operator;
-    private NumberType type;
+import java.util.Objects;
+
+public final class Data {
+
+    private int firstNumber;    // первый операнд
+    private int secondNumber;   // второй операнд
+    private String operator;    // тип операции
+    private NumberType type;    // тип чисел (рим./араб.)
 
     public Data( int firstNumber, int secondNumber, String operator, NumberType type ) {
         this.firstNumber = firstNumber;
@@ -28,5 +30,21 @@ public final class Data
 
     public NumberType getType() {
         return type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Data)) return false;
+        Data data = (Data) o;
+        return firstNumber == data.firstNumber &&
+                secondNumber == data.secondNumber &&
+                Objects.equals(operator, data.operator) &&
+                type == data.type;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstNumber, secondNumber, operator, type);
     }
 }
