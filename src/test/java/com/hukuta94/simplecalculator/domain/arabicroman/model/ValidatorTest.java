@@ -106,21 +106,14 @@ public class ValidatorTest
     @Test
     @DisplayName( "Data object with arabic numbers" )
     void testDataObjectWithArabicNumbers() {
-        final int firstNumber = 1;
-        final int secondNumber = 5;
+        final NumberType type = NumberType.ARABIC;
+        final int operand1Arabic = 1;
+        final int operand2Arabic = 5;
 
         for ( String operator : OPERATORS )
         {
-            String inputLine = firstNumber + operator + secondNumber;
-
-            InputData expectedInputData = new InputData( firstNumber, secondNumber, operator, NumberType.ARABIC );
-            InputData actualInputData = validator.validateLineAndGetData( inputLine );
-
-            Assertions.assertEquals( expectedInputData.getFirstOperand(),  actualInputData.getFirstOperand() );
-            Assertions.assertEquals( expectedInputData.getSecondOperand(), actualInputData.getSecondOperand() );
-            Assertions.assertEquals( expectedInputData.getOperator(), actualInputData.getOperator() );
-            Assertions.assertEquals( expectedInputData.getType(), actualInputData.getType() );
-            Assertions.assertEquals(expectedInputData, actualInputData);
+            String inputLine = operand1Arabic + operator + operand2Arabic;
+            testDataObject( operand1Arabic, operand2Arabic, operator, type, inputLine );
         }
     }
 
@@ -132,23 +125,28 @@ public class ValidatorTest
     @Test
     @DisplayName( "Data object with roman numbers" )
     void testDataObjectWithRomanNumbers() {
-        final int firstNumberArabic = 1;
-        final int secondNumberArabic = 5;
-        final String firstNumberRoman = "I";
-        final String secondNumberRoman = "V";
+        final NumberType type = NumberType.ROMAN;
+        final int operand1Arabic = 1;
+        final int operand2Arabic = 5;
+        final String operand1Roman = "I";
+        final String operand2Roman = "V";
 
         for ( String operator : OPERATORS )
         {
-            String inputLine = firstNumberRoman + operator + secondNumberRoman;
-
-            InputData expectedInputData = new InputData( firstNumberArabic, secondNumberArabic, operator, NumberType.ROMAN );
-            InputData actualInputData = validator.validateLineAndGetData( inputLine );
-
-            Assertions.assertEquals( expectedInputData.getFirstOperand(),  actualInputData.getFirstOperand() );
-            Assertions.assertEquals( expectedInputData.getSecondOperand(), actualInputData.getSecondOperand() );
-            Assertions.assertEquals( expectedInputData.getOperator(), actualInputData.getOperator() );
-            Assertions.assertEquals( expectedInputData.getType(), actualInputData.getType() );
-            Assertions.assertEquals(expectedInputData, actualInputData);
+            String inputLine = operand1Roman + operator + operand2Roman;
+            testDataObject( operand1Arabic, operand2Arabic, operator, type, inputLine );
         }
+    }
+
+    private void testDataObject( int operand1, int operand2, String operator, NumberType type, String inputLine )
+    {
+        InputData expectedInputData = new InputData( operand1, operand2, operator, type );
+        InputData actualInputData = validator.validateLineAndGetData( inputLine );
+
+        Assertions.assertEquals( expectedInputData.getFirstOperand(),  actualInputData.getFirstOperand() );
+        Assertions.assertEquals( expectedInputData.getSecondOperand(), actualInputData.getSecondOperand() );
+        Assertions.assertEquals( expectedInputData.getOperator(),      actualInputData.getOperator() );
+        Assertions.assertEquals( expectedInputData.getType(),          actualInputData.getType() );
+        Assertions.assertEquals( expectedInputData,                    actualInputData);
     }
 }
