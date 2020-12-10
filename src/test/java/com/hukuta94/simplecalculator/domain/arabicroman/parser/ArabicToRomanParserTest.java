@@ -4,14 +4,15 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class ArabicToRomanParserTest {
+class ArabicToRomanParserTest extends AbstractParserTest
+{
     @Test
-    @DisplayName("Parser ArabicToRoman")
-    public void testParse(){
-        for (int i=1; i<4000; i++) {
-            String roman = ArabicToRomanParser.parse(i);
-            int arabic = RomanToArabicParser.parse(roman);
-            Assertions.assertEquals(i, arabic);
+    @DisplayName( "Parser ArabicToRoman" )
+    void testParse(){
+        for ( int i = 1; i < 4000; i++ ) {
+            String roman = arabicToRomanParser.parse( i );
+            int arabic = romanToArabicParser.parse( roman );
+            Assertions.assertEquals( i, arabic );
         }
     }
 }

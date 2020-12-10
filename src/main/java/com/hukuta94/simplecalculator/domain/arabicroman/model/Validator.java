@@ -1,5 +1,6 @@
 package com.hukuta94.simplecalculator.domain.arabicroman.model;
 
+import com.hukuta94.simplecalculator.domain.arabicroman.parser.ArabicToRomanParser;
 import com.hukuta94.simplecalculator.domain.arabicroman.parser.RomanToArabicParser;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -9,8 +10,16 @@ public class Validator
     private static final String REGEX_ROMAN_INPUT = "\\s*([IVXLCDM]+)\\s*([\\+\\-\\*/])\\s*([IVXLCDM]+)\\s*";
     private static final String REGEX_ARABIC_INPUT = "\\s*(\\d+)\\s*([\\+\\-\\*/])\\s*(\\d+)\\s*";
 
+    private ArabicToRomanParser arabicToRomanParser;
+    private RomanToArabicParser romanToArabicParser;
+
+    public Validator() {
+        arabicToRomanParser = new ArabicToRomanParser();
+        romanToArabicParser = new RomanToArabicParser();
+    }
+
     // проверяет корректность введенных в программу данных и возвращает их в виде объекта Data
-    public InputData validateLineAndGetData(String line)
+    public InputData validateLineAndGetData( String line )
     {
         // создаем Matcher для поиска в line операции и операндов
         Matcher roman = Pattern.compile( REGEX_ROMAN_INPUT ).matcher( line.toUpperCase() );
@@ -31,8 +40,8 @@ public class Validator
         NumberType type = isArabic ? NumberType.ARABIC : NumberType.ROMAN;
 
         // формируем объект Data
-        int firstNumber = isArabic ? Integer.parseInt( operand1 ) : RomanToArabicParser.parse( operand1 );
-        int secondNumber = isArabic ? Integer.parseInt( operand2 ) : RomanToArabicParser.parse( operand2 );
+        int firstNumber = isArabic ? Integer.parseInt( operand1 ) : romanToArabicParser.parse( operand1 );
+        int secondNumber = isArabic ? Integer.parseInt( operand2 ) : romanToArabicParser.parse( operand2 );
 
         // проверка на допустимость таких операндов
         if ( firstNumber <= 0 || secondNumber <= 0 ) {

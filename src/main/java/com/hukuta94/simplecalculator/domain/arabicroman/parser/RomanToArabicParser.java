@@ -9,13 +9,13 @@ import java.util.Collections;
 public class RomanToArabicParser
 {
     // римское число, которое надо распарсить
-    private static StringBuilder line;
+    private StringBuilder line;
 
     // возвращает арабское представление полученного римского числа
     // или -1, если в результате парсинга было получено недопустимое значение
-    public static int parse( String romanNumber )
+    public int parse( String romanNumber )
     {
-        line = new StringBuilder(romanNumber);
+        line = new StringBuilder( romanNumber );
         int arabicNumber = 0;
 
         ArrayList<RomanNumeral> list = new ArrayList<>( Arrays.asList( RomanNumeral.values() ));
@@ -33,7 +33,7 @@ public class RomanToArabicParser
 
     // определяет является ли крайнее левое число в line, числом,
     // переданным в этот метод. если да, удаляет его из line
-    private static boolean checkAndPrun( String number )
+    private boolean checkAndPrun( String number )
     {
         if ( line.length() < number.length() ) {
             return false;
