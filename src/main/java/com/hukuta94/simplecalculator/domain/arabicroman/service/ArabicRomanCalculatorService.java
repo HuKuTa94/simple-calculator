@@ -8,12 +8,12 @@ public class ArabicRomanCalculatorService
 {
     private Validator validator;
 
-    public ArabicRomanCalculatorService( Validator validator ) {
-        this.validator = validator;
+    public ArabicRomanCalculatorService() {
+        this.validator = new Validator();
     }
 
     public String calculate( String input ) {
         InputData inputData = validator.validateLineAndGetData( input );
-        return CalculatorFactory.getCalculator(inputData, inputData.getType() ).calculate();
+        return CalculatorFactory.getCalculator( inputData, inputData.getType() ).calculate();
     }
 }
