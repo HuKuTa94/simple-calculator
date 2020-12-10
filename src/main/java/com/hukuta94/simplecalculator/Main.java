@@ -1,23 +1,26 @@
 package com.hukuta94.simplecalculator;
 
-import com.hukuta94.simplecalculator.calculator.CalculatorFactory;
-import com.hukuta94.simplecalculator.input.Input;
-import com.hukuta94.simplecalculator.model.Data;
+import com.hukuta94.simplecalculator.domain.arabicroman.model.Validator;
+import com.hukuta94.simplecalculator.domain.arabicroman.port.driving.UserInputPort;
+import com.hukuta94.simplecalculator.domain.arabicroman.service.ArabicRomanCalculatorService;
+import com.hukuta94.simplecalculator.presenter.ConsolePrinter;
+import com.hukuta94.simplecalculator.presenter.UserInputHandler;
+
+import java.util.Scanner;
 
 public class Main
 {
     public static void main( String[] args )
     {
-        System.out.println( "Welcome to Roman/Arabic calculator!\nEnter two numbers like below:\n5 + 3\tor\tV + III (with spaces!)" );
-        System.out.println( "Available operators:\n\t+ addition\n\t- subtraction" +
-                "\n\t* multiplication\n\t/ division");
-        System.out.println( "Available range of numbers:\n\t1 - 10\n\tI - X");
+        ConsolePrinter consolePrinter = new ConsolePrinter();
+        consolePrinter.printWelcomeMessage();
+        UserInputPort arabicRomanAdapter = new UserInputHandler( new ArabicRomanCalculatorService( new Validator() ));
+        Scanner scanner = new Scanner( System.in );
 
         while( true ) {
-            System.out.println( "Enter two numbers:" );
-            Data data = Input.getData();
-            String result = CalculatorFactory.getCalculator( data, data.getType() ).calculate();
-            System.out.println( result );
+            consolePrinter.print( "Enter two numbers:" );
+            String result = arabicRomanAdapter.getResult( scanner.nextLine() );
+            consolePrinter.print( result );
         }
     }
 }
