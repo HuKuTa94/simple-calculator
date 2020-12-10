@@ -11,7 +11,7 @@ public class Validator
     private static final String REGEX_ARABIC_INPUT = "\\s*(\\d+)\\s*([\\+\\-\\*/])\\s*(\\d+)\\s*";
 
     // проверяет корректность введенных в программу данных и возвращает их в виде объекта Data
-    static InputData validateLineAndGetData(String line )
+    static InputData validateLineAndGetData( String line )
     {
         // создаем Matcher для поиска в line операции и операндов
         Matcher roman = Pattern.compile( REGEX_ROMAN_INPUT ).matcher( line.toUpperCase() );
@@ -42,8 +42,4 @@ public class Validator
 
         return new InputData( firstNumber, secondNumber, operation , type );
     }
-
 }
-
-
-
