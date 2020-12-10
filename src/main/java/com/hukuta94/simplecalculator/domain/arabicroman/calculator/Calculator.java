@@ -1,13 +1,13 @@
 package com.hukuta94.simplecalculator.domain.arabicroman.calculator;
 
-import com.hukuta94.simplecalculator.domain.arabicroman.model.Data;
+import com.hukuta94.simplecalculator.domain.arabicroman.model.InputData;
 
 public abstract class Calculator
 {
-    Data data;
+    InputData inputData;
 
-    Calculator( Data data ) {
-        this.data = data;
+    Calculator( InputData inputData) {
+        this.inputData = inputData;
     }
 
     public abstract String calculate();

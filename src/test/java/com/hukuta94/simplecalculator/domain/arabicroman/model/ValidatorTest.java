@@ -1,8 +1,5 @@
 package com.hukuta94.simplecalculator.domain.arabicroman.model;
 
-import com.hukuta94.simplecalculator.domain.arabicroman.model.Data;
-import com.hukuta94.simplecalculator.domain.arabicroman.model.NumberType;
-import com.hukuta94.simplecalculator.domain.arabicroman.model.Validator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -116,14 +113,14 @@ public class ValidatorTest
         {
             String inputLine = firstNumber + operator + secondNumber;
 
-            Data expectedData = new Data( firstNumber, secondNumber, operator, NumberType.ARABIC );
-            Data actualData = validator.validateLineAndGetData( inputLine );
+            InputData expectedInputData = new InputData( firstNumber, secondNumber, operator, NumberType.ARABIC );
+            InputData actualInputData = validator.validateLineAndGetData( inputLine );
 
-            Assertions.assertEquals( expectedData.getFirstNumber(),  actualData.getFirstNumber() );
-            Assertions.assertEquals( expectedData.getSecondNumber(), actualData.getSecondNumber() );
-            Assertions.assertEquals( expectedData.getOperator(), actualData.getOperator() );
-            Assertions.assertEquals( expectedData.getType(), actualData.getType() );
-            Assertions.assertEquals( expectedData, actualData );
+            Assertions.assertEquals( expectedInputData.getFirstOperand(),  actualInputData.getFirstOperand() );
+            Assertions.assertEquals( expectedInputData.getSecondOperand(), actualInputData.getSecondOperand() );
+            Assertions.assertEquals( expectedInputData.getOperator(), actualInputData.getOperator() );
+            Assertions.assertEquals( expectedInputData.getType(), actualInputData.getType() );
+            Assertions.assertEquals(expectedInputData, actualInputData);
         }
     }
 
@@ -144,14 +141,14 @@ public class ValidatorTest
         {
             String inputLine = firstNumberRoman + operator + secondNumberRoman;
 
-            Data expectedData = new Data( firstNumberArabic, secondNumberArabic, operator, NumberType.ROMAN );
-            Data actualData = validator.validateLineAndGetData( inputLine );
+            InputData expectedInputData = new InputData( firstNumberArabic, secondNumberArabic, operator, NumberType.ROMAN );
+            InputData actualInputData = validator.validateLineAndGetData( inputLine );
 
-            Assertions.assertEquals( expectedData.getFirstNumber(),  actualData.getFirstNumber() );
-            Assertions.assertEquals( expectedData.getSecondNumber(), actualData.getSecondNumber() );
-            Assertions.assertEquals( expectedData.getOperator(), actualData.getOperator() );
-            Assertions.assertEquals( expectedData.getType(), actualData.getType() );
-            Assertions.assertEquals( expectedData, actualData );
+            Assertions.assertEquals( expectedInputData.getFirstOperand(),  actualInputData.getFirstOperand() );
+            Assertions.assertEquals( expectedInputData.getSecondOperand(), actualInputData.getSecondOperand() );
+            Assertions.assertEquals( expectedInputData.getOperator(), actualInputData.getOperator() );
+            Assertions.assertEquals( expectedInputData.getType(), actualInputData.getType() );
+            Assertions.assertEquals(expectedInputData, actualInputData);
         }
     }
 }
