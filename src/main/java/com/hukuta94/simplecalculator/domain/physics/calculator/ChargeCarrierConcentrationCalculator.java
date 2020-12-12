@@ -12,13 +12,14 @@ import java.math.RoundingMode;
  * @version 1.0
  * Formula: (PZL*E*Eo*U1) / (q*L^2)
  */
+
 public class ChargeCarrierConcentrationCalculator extends Calculator
 {
-    ChargeCarrierConcentrationCalculator(){
+    public ChargeCarrierConcentrationCalculator(){
         super();
     }
 
-    ChargeCarrierConcentrationCalculator( InputDataArray input ) {
+    public ChargeCarrierConcentrationCalculator( InputDataArray input ) {
         super( input );
     }
 

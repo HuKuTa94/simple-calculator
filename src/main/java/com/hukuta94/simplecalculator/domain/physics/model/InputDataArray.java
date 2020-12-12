@@ -4,12 +4,17 @@ import com.hukuta94.simplecalculator.domain.physics.calculator.CalculatorType;
 
 import java.math.BigDecimal;
 
+/**
+ * Class for creating DTO input data.
+ * This class used by Calculator subclasses
+ * @Author Nikita Koshelev aka HuKuTa94
+ * @version 1.0
+ */
+
 public class InputDataArray
 {
     private CalculatorType calculatorType;
     private BigDecimal[] input;
-
-    public InputDataArray() {}
 
     public InputDataArray(
             CalculatorType calculatorType,

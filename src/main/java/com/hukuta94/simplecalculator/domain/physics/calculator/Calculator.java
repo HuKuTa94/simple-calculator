@@ -4,6 +4,13 @@ import com.hukuta94.simplecalculator.domain.physics.model.InputDataArray;
 
 import java.math.BigDecimal;
 
+/**
+ * Base calculator class used with Reflection API.
+ * All subclasses must have empty and all-args public constructors.
+ * @Author Nikita Koshelev aka HuKuTa94
+ * @version 1.0
+ */
+
 public abstract class Calculator
 {
     // Constants
@@ -20,8 +27,4 @@ public abstract class Calculator
     }
 
     public abstract double calculate();
-
-    void setInputData( InputDataArray inputData ) {
-        this.input = inputData;
-    }
 }

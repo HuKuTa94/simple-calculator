@@ -12,13 +12,14 @@ import java.math.RoundingMode;
  * @version 1.0
  * Formula: ( (I/S) * L^3 ) / (PZL*E*Eo*U1^2)
  */
+
 public class ChargeCarrierMobilityCalculator extends Calculator
 {
-    ChargeCarrierMobilityCalculator() {
+    public ChargeCarrierMobilityCalculator() {
         super();
     }
 
-    ChargeCarrierMobilityCalculator( InputDataArray input ) {
+    public ChargeCarrierMobilityCalculator( InputDataArray input ) {
         super( input );
 }
 

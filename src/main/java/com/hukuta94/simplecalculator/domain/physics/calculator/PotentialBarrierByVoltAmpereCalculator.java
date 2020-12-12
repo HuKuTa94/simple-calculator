@@ -12,13 +12,14 @@ import java.math.RoundingMode;
  * @version 1.0
  * Formula: (kT / q) * ln( (AA*T^2) / Is );
  */
+
 public class PotentialBarrierByVoltAmpereCalculator extends Calculator
 {
-    PotentialBarrierByVoltAmpereCalculator() {
+    public PotentialBarrierByVoltAmpereCalculator() {
         super();
     }
     
-    PotentialBarrierByVoltAmpereCalculator( InputDataArray input ) {
+    public PotentialBarrierByVoltAmpereCalculator( InputDataArray input ) {
         super( input );
     }
 
