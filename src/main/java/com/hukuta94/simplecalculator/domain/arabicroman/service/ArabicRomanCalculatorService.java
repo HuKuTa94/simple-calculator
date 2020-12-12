@@ -14,6 +14,6 @@ public class ArabicRomanCalculatorService
 
     public String calculate( String input ) {
         InputData inputData = validator.validateLineAndGetData( input );
-        return CalculatorFactory.getCalculator( inputData, inputData.getType() ).calculate();
+        return CalculatorFactory.getCalculator( inputData ).calculate();
     }
 }

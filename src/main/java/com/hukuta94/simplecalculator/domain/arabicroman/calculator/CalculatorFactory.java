@@ -5,7 +5,9 @@ import com.hukuta94.simplecalculator.domain.arabicroman.model.NumberType;
 
 public abstract class CalculatorFactory
 {
-    public static Calculator getCalculator( InputData inputData, NumberType type ) {
+    public static Calculator getCalculator( InputData inputData ) {
+        NumberType type = inputData.getType();
+
         return switch( type ) {
             case ARABIC -> new ArabicCalculator( inputData );
             case ROMAN  -> new RomanCalculator( inputData );
