@@ -9,7 +9,7 @@ public final class InputData
     private String operator;
     private NumberType type;
 
-    public InputData( int firstOperand, int secondOperand, String operator, NumberType type ) {
+    InputData( int firstOperand, int secondOperand, String operator, NumberType type) {
         this.firstOperand = firstOperand;
         this.secondOperand = secondOperand;
         this.operator = operator;
