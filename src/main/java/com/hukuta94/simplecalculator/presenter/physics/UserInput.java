@@ -1,6 +1,6 @@
 package com.hukuta94.simplecalculator.presenter.physics;
 
-import com.hukuta94.simplecalculator.domain.physics.model.InputDataArray;
+import com.hukuta94.simplecalculator.domain.physics.model.InputDataDto;
 import com.hukuta94.simplecalculator.domain.physics.port.driving.UserInputPort;
 import com.hukuta94.simplecalculator.domain.physics.service.PhysicsCalculatorService;
 
@@ -13,7 +13,7 @@ public class UserInput implements UserInputPort
     }
 
     @Override
-    public double getResult(InputDataArray input ) {
+    public double getResult( InputDataDto input ) {
         return service.calculate( input );
     }
 }
