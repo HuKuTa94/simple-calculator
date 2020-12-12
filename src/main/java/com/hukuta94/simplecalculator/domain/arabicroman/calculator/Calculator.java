@@ -4,20 +4,24 @@ import com.hukuta94.simplecalculator.domain.arabicroman.model.InputData;
 
 public abstract class Calculator
 {
-    InputData inputData;
+    private InputData inputData;
 
-    Calculator( InputData inputData) {
+    Calculator( InputData inputData ) {
         this.inputData = inputData;
     }
 
     public abstract String calculate();
 
-    static int getResult(int firstNumber, int secondNumber, String operator) {
+    int getResult() {
+        int firstOperand = inputData.getFirstOperand();
+        int secondOperand = inputData.getSecondOperand();
+        String operator = inputData.getOperator();
+
         return switch( operator ) {
-            case "+" -> firstNumber + secondNumber;
-            case "-" -> firstNumber - secondNumber;
-            case "*" -> firstNumber * secondNumber;
-            case "/" -> firstNumber / secondNumber;
+            case "+" -> firstOperand + secondOperand;
+            case "-" -> firstOperand - secondOperand;
+            case "*" -> firstOperand * secondOperand;
+            case "/" -> firstOperand / secondOperand;
             default -> throw new IllegalStateException( "Unexpected value: " + operator );
         };
     }

@@ -14,7 +14,7 @@ class RomanCalculator extends Calculator
 
     @Override
     public String calculate() {
-        int result = getResult( inputData.getFirstOperand(), inputData.getSecondOperand(), inputData.getOperator() );
+        int result = getResult();
         return arabicToRomanParser.parse( result );
     }
 }
