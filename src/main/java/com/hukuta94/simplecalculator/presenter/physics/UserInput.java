@@ -13,7 +13,7 @@ public class UserInput implements UserInputPort
     }
 
     @Override
-    public double getResult( InputDataDto input ) {
+    public String getResult( InputDataDto input ) {
         return service.calculate( input );
     }
 }
