@@ -10,38 +10,36 @@ import com.hukuta94.simplecalculator.presenter.physics.UserInput;
 
 public class ConsolePhysicsAppLauncher
 {
-    private static UserInputPort userInput;
-
     public static void main( String[] args )
     {
-        userInput = new UserInput( new PhysicsCalculatorService() );
+        UserInputPort userInput = new UserInput(new PhysicsCalculatorService());
 
 
         InputDataDto chargeCarrierConcentrationInput = new ChargeCarrierConcentrationInputDataDto(
-                0.00234,
-                0.21,
-                2.220001,
-                0.32
+                "0.00234",
+                "0.21",
+                "2.220001",
+                "0.32"
         );
         System.out.println( "Концентрация носителей заряда: " + userInput.getResult( chargeCarrierConcentrationInput ));
 
 
         InputDataDto chargeCarrierMobilityInput = new ChargeCarrierMobilityInputDataDto(
-                2.9,
-                0.21,
-                2.220001,
-                0.32,
-                0.02,
-                0.00234
+                "2.9",
+                "0.21",
+                "2.220001",
+                "0.32",
+                "0.02",
+                "0.00234"
         );
         System.out.println( "Подвижность носителей заряда: " + userInput.getResult( chargeCarrierMobilityInput ));
 
 
         InputDataDto potentialBarrierByVoltAmpereInput = new PotentialBarrierByVoltAmpereInputDataDto(
-                1.2,
-                100.0,
-                0.02,
-                1.000021
+                "1.2",
+                "100.0",
+                "0.02",
+                "1.000021"
         );
 
         System.out.println( "Потенциальный барьер по вольт-амперной характеристике: " +
