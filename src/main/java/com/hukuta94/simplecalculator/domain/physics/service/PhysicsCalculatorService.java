@@ -5,7 +5,7 @@ import com.hukuta94.simplecalculator.domain.physics.model.InputDataDto;
 
 public class PhysicsCalculatorService
 {
-    public double calculate( InputDataDto input ) {
+    public String calculate( InputDataDto input ) {
         return CalculatorFactory.getCalculator( input ).calculate();
     }
 }

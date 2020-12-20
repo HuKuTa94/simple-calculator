@@ -12,10 +12,10 @@ final public class PotentialBarrierByVoltAmpereInputDataDto extends InputDataDto
     public final BigDecimal ZERO_CURRENT;           // Нулевой ток (Is), [A]
 
     public PotentialBarrierByVoltAmpereInputDataDto(
-            double zeroCurrent,
-            double temperature,
-            double contactArea,
-            double richardsonConstant
+            String zeroCurrent,
+            String temperature,
+            String contactArea,
+            String richardsonConstant
     ) {
         calculatorType = CalculatorType.POTENTIAL_BARRIER_BY_VOLT_AMPERE;
         TEMPERATURE = new BigDecimal( temperature );

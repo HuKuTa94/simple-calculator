@@ -12,10 +12,10 @@ final public class ChargeCarrierConcentrationInputDataDto extends InputDataDto
     public final BigDecimal TRANSITION_VOLTAGE_TO_SQUARE_SECTION;    // Напряжение перехода к квадратичному участку (U1), [A]
 
     public ChargeCarrierConcentrationInputDataDto(
-            double permittivity,
-            double coefficientPZL,
-            double membraneThickness,
-            double transitionVoltageToSquareSection
+            String permittivity,
+            String coefficientPZL,
+            String membraneThickness,
+            String transitionVoltageToSquareSection
     ) {
         calculatorType = CalculatorType.CHARGE_CARRIER_CONCENTRATION;
         PERMITTIVITY = new BigDecimal( permittivity );

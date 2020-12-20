@@ -9,36 +9,31 @@ import java.math.RoundingMode;
 /**
  * Расчет энергетического барьера по вольтамперной характеристике
  * @Author Nikita Koshelev aka HuKuTa94
- * @version 1.01
+ * @version 1.02
  * Formula: (kT / q) * ln( (AA*T^2) / Is );
  */
 
 public class PotentialBarrierByVoltAmpereCalculator extends Calculator
 {
-    private PotentialBarrierByVoltAmpereInputDataDto input;
-
-    public PotentialBarrierByVoltAmpereCalculator() {
-        super();
-    }
-    
-    public PotentialBarrierByVoltAmpereCalculator( InputDataDto input ) {
-        super();
-        this.input = (PotentialBarrierByVoltAmpereInputDataDto) input;
+    public PotentialBarrierByVoltAmpereCalculator( InputDataDto inputDataDto ) {
+        super( inputDataDto );
     }
 
     @Override
-    public double calculate()
+    public String calculate()
     {
+        PotentialBarrierByVoltAmpereInputDataDto input = (PotentialBarrierByVoltAmpereInputDataDto) inputDataDto;
+
         /** kT / q */
         BigDecimal kT_divide_q =
-                new BigDecimal( BOLTZMANN_CONSTANT_k.doubleValue() )
+                new BigDecimal( BOLTZMANN_CONSTANT_k.toString() )
                     .multiply( input.TEMPERATURE )
-                    .divide( ELECTRON_CHARGE_q, RoundingMode.UNNECESSARY );
+                    .divide( ELECTRON_CHARGE_q, RoundingMode.CEILING );
 
 
         /** (AA*T^2) / Is */
         BigDecimal AA_T_pow2_divide_Is =
-                new BigDecimal( input.TEMPERATURE.doubleValue() )
+                new BigDecimal( input.TEMPERATURE.toString() )
                     .pow( 2 )
                     .multiply( input.CONTACT_AREA )
                     .multiply( input.RICHARDSON_CONSTANT )
@@ -46,20 +41,16 @@ public class PotentialBarrierByVoltAmpereCalculator extends Calculator
 
 
         /**  Ln( (AA*T^2) / Is ) */
-        BigDecimal Ln =
-                new BigDecimal(
-                    Math.log( AA_T_pow2_divide_Is.doubleValue() )
-                );
+        BigDecimal Ln = BigDecimal.valueOf(
+                Math.log( AA_T_pow2_divide_Is.doubleValue() ));
 
 
         /** Result = (kT / q) * ln( (AA*T^2) / Is ) */
         BigDecimal result =
-                new BigDecimal(
-                        kT_divide_q.doubleValue()
-                )
-                .multiply( Ln );
+                new BigDecimal( kT_divide_q.toString() )
+                    .multiply( Ln );
 
 
-        return result.doubleValue();
+        return result.toString();
     }
 }

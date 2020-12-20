@@ -15,12 +15,12 @@ final public class ChargeCarrierMobilityInputDataDto extends InputDataDto
 
 
     public ChargeCarrierMobilityInputDataDto(
-            double amperage,
-            double coefficientPZL,
-            double membraneThickness,
-            double transitionVoltageToSquareSection,
-            double contactArea,
-            double permittivity
+            String amperage,
+            String coefficientPZL,
+            String membraneThickness,
+            String transitionVoltageToSquareSection,
+            String contactArea,
+            String permittivity
     ) {
         calculatorType = CalculatorType.CHARGE_CARRIER_MOBILITY;
         AMPERAGE = new BigDecimal( amperage );

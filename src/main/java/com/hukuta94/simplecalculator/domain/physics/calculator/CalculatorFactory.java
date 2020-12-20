@@ -12,8 +12,7 @@ import java.lang.reflect.Constructor;
 
 public abstract class CalculatorFactory
 {
-    protected CalculatorFactory() {
-    }
+    protected CalculatorFactory() {}
 
     public static Calculator getCalculator( InputDataDto inputData )
     {

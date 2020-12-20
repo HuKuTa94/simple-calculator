@@ -4,5 +4,5 @@ import com.hukuta94.simplecalculator.domain.physics.model.InputDataDto;
 
 public interface UserInputPort
 {
-    double getResult( InputDataDto input );
+    String getResult( InputDataDto input );
 }
