@@ -1,4 +1,4 @@
-package com.hukuta94.simplecalculator.domain.arabicroman.calculator.physics;
+package com.hukuta94.simplecalculator.domain.physics.calculator;
 
 import com.hukuta94.simplecalculator.domain.physics.calculator.CalculatorFactory;
 import com.hukuta94.simplecalculator.domain.physics.calculator.ChargeCarrierConcentrationCalculator;
